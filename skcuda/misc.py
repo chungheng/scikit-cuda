@@ -1100,6 +1100,34 @@ def divide(x_gpu, y_gpu):
 
     return binaryop_2d("/", operator.truediv, False, x_gpu, y_gpu)
 
+def repeat(a, repeats, axis=None):
+    """
+    Repeat elements of an array.
+
+    Parameters
+    ----------
+    x_gpu : pycuda.gpuarray.GPUArray
+        The arrays to be repeated.
+    repeats : int or array of ints
+        The number of repetitions for each element.  `repeats` is broadcasted
+        to fit the shape of the given axis.
+    axis : int, optional
+        The axis along which to repeat values.  By default, use the flattened
+        input array, and return a flat output array.
+
+    Returns
+    -------
+    out : pycuda.gpuarray.GPUArray
+        Output array which has the same shape as `x_gpu`, except along the
+        given axis.
+
+    Examples
+    --------
+    >>> np.repeat(3, 4)
+    array([3, 3, 3, 3])
+    """
+    pass
+
 def add_matvec(x_gpu, a_gpu, axis=None, out=None, stream=None):
     """
     Adds a vector to each column/row of the matrix.
